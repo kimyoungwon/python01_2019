@@ -17,11 +17,14 @@ def main():
         term = input('Search (enter a term to query): ')
         ranking = engine.search(term)
         print("Displaying results for " + "'" + term + "':")
-        rank = 1
-        for doc in ranking:
-            print('    ' + str(rank) + '. ' + doc)
-            rank += 1
-        print()
+        if ranking is None:
+            print('    No results :(')
+        else:
+            rank = 1
+            for doc in ranking:
+                print('    ' + str(rank) + '. ' + doc)
+                rank += 1
+            print()
         answer = ''
         while not (answer == 'y' or answer == 'n'):
             answer = input('Would you like to search another term (y/n) ')
