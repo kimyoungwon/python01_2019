@@ -1,6 +1,6 @@
-1. a)
-   b)
+1. a)No, I do not think that the bar chart is an effective data visualization. As we can see the bar chart, total percentage differences between the women, men, and total people with a minimum education of high school degrees in 2009 are not obvious and significant. Thus, the chart cannot give meaningful inforamtion on the differences between the types of sex to us.
+   b)I think that this line chart to show the changes of the percent of Hispanic with a high school degree or master degree from 1990 to 2010 could be more appropriate than other ways of data visualization. This visualization is simple, but easy to understand. In addition, the chart clearly shows the changes of individuals with different degrees over years. Lastly, this provides how different educational attainment Hispanic individuals had between 1990 and 2010 well. 
 
-2.
+2. The given dataset only showed the total percentage of people with highschool degree and master's degree between 1990 and 2010. To show clearer trends, it might be good to have more individual data. Additionally, the chart might not show the change well because it has two lines in one chart despite of the big differences between people with high school degree and master's degree. 
 
-3.
+3. Yes, there is a mean squared error difference between trained dataset and test dataset. When making future predictions with this dataset, we should not simply use outcomes with the predictions using python due to the difference. We really need to make predictions and also be careful to gather our real data.  
