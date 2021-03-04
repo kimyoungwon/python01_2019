@@ -27,3 +27,104 @@ def parse(file_name, int_cols):
 
 
 # Write your solutions here!
+def species_count(data):
+    """
+    Returns the number of unique Pokemon species found in the dataset. 
+
+    Takes the dataset(dictationary as an arguments.
+    """
+    species = []
+    for line in data: 
+        if line['name'] not in species:
+            species.append(line['name']) 
+    return len(species)
+
+def max_level(data):
+    """
+    Returns a tuple of length 2, where the first element is 
+    the name of the Pokemon and the second is its level. 
+
+    Takes the dataset(dictationary as an arguments.   
+    """
+    max_key = None
+    max_value = 0
+    for line in data:
+        if line['level'] > max_value:
+            max_key = line['name']
+            max_value = line['level'] 
+    return (max_key, max_value)
+
+def filter_range(data, smallest, largest):
+    """
+    Returns a list of Pokemon names having a level within that range. 
+
+    Takes as arguments a smallest (inclusive) and largest (exclusive) level value .   
+    """
+    species = []
+    for line in data:
+        if line['level'] >= smallest and line['level'] < largest:
+            species.append(line['name'])
+    return (species) 
+    
+def mean_attack_for_type(data, pokemon_type):
+    """
+    Returns the average attack stat for all the Pokemon in the dataset with that type.
+    If there are no Pokemon of the given type, this function should return None.
+    
+    Take a Pokemon type (string) as an argument
+    """
+    all_type = []
+    attack = []
+    for line in data:
+        all_type.append(line['type'])
+    
+    for line in data:       
+        if line['type'] == pokemon_type and pokemon_type in all_type:
+            attack.append(line['atk'])
+    
+        elif pokemon_type not in all_type:
+            return None
+    average = sum(attack)/len(attack)
+    return average
+
+def count_types(data):
+    """
+    Returns a dictionary with keys that are Pokemon types and values 
+    that are the number of times that type appears in the dataset.
+
+    Takes the dataset(dictationary as an arguments.
+    """
+    type_data = {}
+    for line in data:
+        if line['type'] in type_data.keys():
+            type_data[line['type']] += 1
+        else:
+            type_data[line['type']] = 1            
+    return type_data
+
+def highest_stage_per_type(data):
+    types_stages = {}
+    for line in data:
+        if line['type'] in types_stages.keys():
+            if line['stage'] >= types_stages[line['type']]:
+                types_stages[line['type']] = line['stage']
+            else:
+                types_stages[line['type']] = types_stages[line['type']]
+        else:
+            types_stages[line['type']] = line['stage']
+    return types_stages
+
+def mean_attack_per_type(data):
+    types_atks = {}
+    type_count = count_types(data)
+    for line in data:
+        if line['type'] in types_atks.keys():
+            types_atks[line['type']] = types_atks[line['type']] + line['atk']
+        else:
+            types_atks[line['type']] = line['atk']
+    
+    for key in type_count.keys():
+        types_atks[key] = types_atks[key]/type_count[key]
+    return types_atks
+
+    
